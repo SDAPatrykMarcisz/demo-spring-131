@@ -1,4 +1,6 @@
-package pl.marcisz.patryk.demo.spring131.model;
+package pl.marcisz.patryk.demo.spring131.model.dto;
+
+import pl.marcisz.patryk.demo.spring131.model.entity.TranslationEntity;
 
 import java.util.Map;
 
