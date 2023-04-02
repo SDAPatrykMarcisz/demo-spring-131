@@ -1,4 +1,4 @@
-package pl.marcisz.patryk.demo.spring131;
+package pl.marcisz.patryk.demo.spring131.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
