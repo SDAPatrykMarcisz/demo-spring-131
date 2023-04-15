@@ -1,9 +1,10 @@
 package pl.marcisz.patryk.demo.spring131.model.dto;
 
-import pl.marcisz.patryk.demo.spring131.model.entity.TranslationEntity;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Map;
-
 public class Translation {
 
     public Translation(String code, Map<String, String> translations) {
@@ -11,7 +12,9 @@ public class Translation {
         this.translations = translations;
     }
 
+    @NotEmpty
     private String code;
+    @NotNull
     private Map<String, String> translations;
 
     public String getCode() {

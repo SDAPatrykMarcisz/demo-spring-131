@@ -2,6 +2,7 @@ package pl.marcisz.patryk.demo.spring131.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.marcisz.patryk.demo.spring131.exception.CustomException;
 import pl.marcisz.patryk.demo.spring131.model.dto.Translation;
 import pl.marcisz.patryk.demo.spring131.model.dto.TranslationUpdate;
 import pl.marcisz.patryk.demo.spring131.model.entity.TranslationEntity;
@@ -78,7 +79,7 @@ public class TranslationService {
                 .ifPresentOrElse(
                         translationRepository::save,
                         () -> {
-                            throw new IllegalArgumentException("nie znaleziono obiektu dla podanych code i language");
+                            throw new CustomException("nie znaleziono obiektu dla podanych code i language");
                         }
                 );
 
