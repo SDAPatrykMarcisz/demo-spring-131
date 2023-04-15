@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import pl.marcisz.patryk.demo.spring131.model.dto.Translation;
+import pl.marcisz.patryk.demo.spring131.model.dto.TranslationUpdate;
 import pl.marcisz.patryk.demo.spring131.model.entity.TranslationEntity;
 import pl.marcisz.patryk.demo.spring131.service.TranslationService;
 
@@ -38,6 +39,18 @@ public class TranslationController {
                 .status(HttpStatus.CREATED)
                 .header("x-created-object-id", ids.toString())
                 .build();
+    }
+
+    //CRUD - U = UPDATE / PUT
+    @RequestMapping(method = RequestMethod.PUT, path = "/translations/{code}/{language}")
+    public void updateTranslation(@PathVariable String code, @PathVariable String language, @RequestBody TranslationUpdate translationUpdate){
+        translationService.updateTranslation(code, language, translationUpdate);
+    }
+
+    //CRUD - D = DELETE
+    @RequestMapping(method = RequestMethod.DELETE, path = "/translations/{code}/{language}")
+    public void deleteTranslation(@PathVariable String code, @PathVariable String language){
+        translationService.deleteTranslation(code, language);
     }
 
 
