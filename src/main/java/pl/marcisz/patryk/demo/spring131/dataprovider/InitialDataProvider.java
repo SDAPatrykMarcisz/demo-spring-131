@@ -1,5 +1,7 @@
 package pl.marcisz.patryk.demo.spring131.dataprovider;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.marcisz.patryk.demo.spring131.model.dto.Translation;
@@ -13,8 +15,17 @@ public class InitialDataProvider implements CommandLineRunner {
 
     private final TranslationRepository repository;
 
-    public InitialDataProvider(TranslationRepository repository) {
+    @Value("${data.user.admin.login}")
+    private String adminUser;
+
+    private String adminPassword;
+
+    @Autowired
+    public InitialDataProvider(TranslationRepository repository,
+                               @Value("${data.user.admin.password}") String adminPassword) {
         this.repository = repository;
+        System.out.println(adminUser + " : " + adminPassword);
+        this.adminPassword = adminPassword;
     }
 
     @Override
@@ -23,6 +34,7 @@ public class InitialDataProvider implements CommandLineRunner {
         createAndSave("main.page.welcome-message", "EN",  "Hello");
         createAndSave("main.page.welcome-message", "PL",  "Witaj");
         createAndSave("main.page.welcome-message", "CN",  "欢迎");
+        System.out.println(adminUser + " : " + adminPassword);
     }
 
     private void createAndSave(String code, String language, String translation) {
