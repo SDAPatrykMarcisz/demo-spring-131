@@ -17,6 +17,7 @@ import pl.marcisz.patryk.demo.spring131.service.TranslationService;
 import java.util.List;
 
 @RestController //spring wola za nas new TranslationController() i zarzadza obiektem tej klasy
+//@RequestMapping(path = "/api") //wszystkie endpointy musza teraz sie zaczynac od /api (konkatenacja sciezki)
 public class TranslationController {
 
     private final TranslationService translationService;

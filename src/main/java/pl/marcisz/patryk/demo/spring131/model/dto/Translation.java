@@ -12,7 +12,7 @@ public class Translation {
         this.translations = translations;
     }
 
-    @NotEmpty
+    @NotEmpty(message = "musi zawierac tresc")
     private String code;
     @NotNull
     private Map<String, String> translations;
