@@ -22,8 +22,7 @@ public class PopulationController {
     @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(method = RequestMethod.GET, path = "/populations")
     public List<Population> getAllPopulations() {
-        return populationService
-                .getAllPopulations();
+        return populationService.getAllPopulations();
     }
 
     //CRUD - C = CREATE / POST
