@@ -1,5 +1,6 @@
 package pl.marcisz.patryk.demo.spring131.population.service;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -27,6 +28,12 @@ class PopulationServiceTest {
     @Mock
     private PopulationRepository populationRepository; //obiekt typu "tanczy jak mu zagram"
 
+    private PopulationService populationService;
+
+    @BeforeEach
+    void setUp(){
+        this.populationService = new PopulationService(populationRepository);
+    }
     @Test
     void shouldUpdateWhenPopulationInDatabaseExists() {
         //given
@@ -41,7 +48,6 @@ class PopulationServiceTest {
                 .thenReturn(Optional.of(expectedRepositoryObject));
 
         //when
-        PopulationService populationService = new PopulationService(populationRepository);
         populationService.updatePopulation(name, population, increase, populationUpdate);
 
         //then

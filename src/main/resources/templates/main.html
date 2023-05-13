@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Population</title>
+    <!--    <link rel="stylesheet" href="/webjars/bootstrap/4.6.0/css/bootstrap.min.css">-->
+    <!--    <script src="/webjars/bootstrap/4.6.0/js/bootstrap.min.js"></script>-->
+</head>
+<body>
+<table ><!--mozna uzyc saDane -->
+    <tr>
+        <th>Kraj</th>
+        <th>Populacja</th>
+        <th>Przyrost naturalny</th>
+    </tr>
+    <!--    <tr>-->
+    <!--        <td>{{panstwo.nazwa}}</td>-->
+    <!--        <td>{{panstwo.populacja}}</td>-->
+    <!--        <td>{{panstwo.przyrost}}</td>-->
+    <!--    </tr>-->
+    <tr th:each="item : ${populations}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.population}"></td>
+        <td th:text="${item.increase}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
