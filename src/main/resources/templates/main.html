@@ -12,6 +12,7 @@
         <th>Kraj</th>
         <th>Populacja</th>
         <th>Przyrost naturalny</th>
+        <th></th>
     </tr>
     <!--    <tr>-->
     <!--        <td>{{panstwo.nazwa}}</td>-->
@@ -19,9 +20,12 @@
     <!--        <td>{{panstwo.przyrost}}</td>-->
     <!--    </tr>-->
     <tr th:each="item : ${populations}">
+<!--        <td th:if=${item.name == ${nameToEdit}}></td>-->
+
         <td th:text="${item.name}"></td>
         <td th:text="${item.population}"></td>
         <td th:text="${item.increase}"></td>
+        <td><a th:href="@{/?edytuj=__${item.name}__}">Edytuj</a></td>
     </tr>
     <tr>
         <form action="/" method="post" th:object="${groupForm}">

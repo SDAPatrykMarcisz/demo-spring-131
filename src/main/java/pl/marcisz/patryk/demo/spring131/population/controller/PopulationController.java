@@ -38,9 +38,9 @@ public class PopulationController {
     }
 
     //CRUD - U = UPDATE / PUT
-    @RequestMapping(method = RequestMethod.PUT, path = "/populations/{name}/{population}")
-    public void updatePopulation(@PathVariable String name, @PathVariable long population, @PathVariable double increase, @RequestBody PopulationUpdate populationUpdate) {
-        populationService.updatePopulation(name, population, increase, populationUpdate);
+    @RequestMapping(method = RequestMethod.PUT, path = "/populations/{name}")
+    public void updatePopulation(@PathVariable String name, @RequestBody PopulationUpdate populationUpdate) {
+        populationService.updatePopulation(name, populationUpdate);
     }
     // /populations/name/population --> String name => name, long population => blad, bo population nie mozna przerobic na longa
     // /population/Chiny/20 --> String name => Chiny, long population => 20

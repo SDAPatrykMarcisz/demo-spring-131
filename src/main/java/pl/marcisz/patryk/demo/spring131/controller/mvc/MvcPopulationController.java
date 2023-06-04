@@ -36,4 +36,9 @@ public class MvcPopulationController {
         populationService.savePopulation(groupForm);
         return "redirect:/";
     }
+
+    @GetMapping(path = "/", params = {"populationName"})
+    public void x(){
+
+    }
 }
